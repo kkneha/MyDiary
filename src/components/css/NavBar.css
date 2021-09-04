@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+/* Nav Bar Main */
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    background-color: #240046;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 8px 5px 15px #EDEBA0;
+}
+
+.left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.right{
+    margin-left: 75%;
+}
+
+.book-icon{
+    margin-left: 10px;
+    font-size: 35px;
+    color: white;
+}
+
+/* Title */
+.header{
+    color: white;
+    margin-left: 15px;
+}
+
+/* Create Button */
+.create-btn{
+    background-color: #240046;
+    cursor: pointer;
+    color: white;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.create-btn:hover{
+    background-color: white ;
+    color: #240046;
+}
+

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.post{
+    margin: 18px auto;
+    width: 60%;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 0px 70px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.post:hover{
+    transform: scale(1.01);
+}
+
+.date{
+    padding-top: 50px;
+    margin-top: 10px;
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: lightgray;
+}
+
+.title{
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: lightgray;
+}
+
+.body{
+    font-weight: 100;
+    line-height: 35px;
+    padding-bottom: 20px;
+}

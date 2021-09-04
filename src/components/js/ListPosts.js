@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import SinglePost from './SinglePost'
 
 export default function ListPosts() {
     const [postList,setPostList] = useState([])
@@ -18,12 +19,20 @@ export default function ListPosts() {
         })
     },[])
 
-    return (
+/*     return (
         <div>
             {postList && (postList.map((data,index) => {
                 console.log(postList)
                 return <h1 key={index}>{data['fields']['title']}</h1>
             }))}
+        </div>
+    ) */
+
+    return (
+        <div>
+           <SinglePost/>
+           <SinglePost/>
+           <SinglePost/>
         </div>
     )
 }

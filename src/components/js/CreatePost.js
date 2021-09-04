@@ -1,4 +1,7 @@
 import React,{useState} from 'react'
+import "../css/CreatePost.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function CreatePost() {
     const [title,setTitle] = useState('')
@@ -25,24 +28,25 @@ export default function CreatePost() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label>title</label>
+            <form className="create-form" onSubmit={handleSubmit}>
+                <h2 className="form-title"><FontAwesomeIcon className="pen-icon" icon={faPenAlt} className="icon"/> My Day</h2>
                 <input 
+                  placeholder="Type Something that describes your day!"
                   type="text"
                   required
                   onChange={e => {
                     setTitle(e.target.value)
-                  }}
+                }}
                 ></input>
-                <label>body</label>
-                <input 
+                <textarea
+                  placeholder="Get Started with your day!" 
                   type="text"
                   required
                   onChange={e => {
                       setBody(e.target.value)
                   }}
-                ></input>
-                <button>Post</button>
+                ></textarea>
+                <button className="post-btn">Post</button>
             </form>
             {done && (
                 <h1>created</h1>

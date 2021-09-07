@@ -33,6 +33,8 @@
     border-radius: 4px;
     margin: 8px 20px;
     background-color: #E5E5E5;
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 15px;
 }
 
 .create-form textarea{
@@ -42,7 +44,8 @@
     margin: 8px 20px;
     height: 400px;
     background-color: #E5E5E5;
-
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 15px;
 }
 
 /* Placeholder */

@@ -11,7 +11,6 @@ export default function NavBar() {
                 <h3 className="header">My Journal</h3>
             </div>
             <div className="right">
-                
                 <button className="create-btn"><FontAwesomeIcon icon={faPlus} className="plus-icon"/>  Create Post</button>
             </div>
         </div>

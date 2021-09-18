@@ -3,13 +3,29 @@ import "../css/EditPost.css";
 import { useLocation } from "react-router";
 
 export default function EditPost() {
-  var data = useLocation().state.data;
+  const data = useLocation().state.data;
+  const pk = data['pk']
   const [title, setTitle] = useState(data["fields"]["title"]);
   const [body, setBody] = useState(data["fields"]["body"]);
+  const [done,setDone] = useState(false)
 
+  const baseURL = 'https://p-diary.herokuapp.com/post/';
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    var post = {'title':title,'body':body}
+    const requestOptions = {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(post)
+    }
+    fetch(baseURL + 'edit/' + pk + "/",requestOptions).then(async response => {
+        console.log(response.json())
+    })
+  } 
   return (
     <div>
-      <form className='edit-form'>
+      <form className='edit-form' onSubmit={handleSubmit}>
         <h2 className='edit-title'>Edit Form</h2>
         <label for='title' className='labels'>
           Title
@@ -34,9 +50,8 @@ export default function EditPost() {
         ></textarea>
         <button className='edit-btn'>Update</button>
       </form>
-      {/*             {done && (
-                <h1>updated</h1>
-            )} */}
+      {done && (
+        alert("Updated"))}
     </div>
   );
 }

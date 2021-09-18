@@ -2,7 +2,7 @@ import React from "react";
 import "../css/SinglePost.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function SinglePost({ data }) {
   const baseURL = "https://p-diary.herokuapp.com/post/";
@@ -25,20 +25,19 @@ export default function SinglePost({ data }) {
     months[parseInt(data["fields"]["createdOn"].toString().slice(5, 7)) - 1];
   var currentDate = data["fields"]["createdOn"].toString().slice(8, 10);
   var currentYear = data["fields"]["createdOn"].toString().slice(0, 4);
-
-  // function deletePost(pk) {
-  //   const requestOptions = {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     // body: JSON.stringify(post)
-  //   };
-  //   fetch(baseURL + "delete/" + pk + "/", requestOptions).then(
-  //     async (response) => {
-  //       // const data = await response.json()
-  //       // setDone(data)
-  //     }
-  //   );
-  // }
+  let history = useHistory();
+  function deletePost() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch(baseURL + "delete/" + data["pk"] + "/", requestOptions).then(
+      async (response) => {
+        console.log(response.json())
+        history.push("/")
+      }
+    );
+  }
 
   return (
     <Link
@@ -52,7 +51,7 @@ export default function SinglePost({ data }) {
         <div className='top-icons'>
           <Link
             to={{
-              pathname: "/edit",
+              pathname: "/edit/" + data["pk"],
               state: {
                 data: data,
               },
@@ -67,7 +66,7 @@ export default function SinglePost({ data }) {
             icon={faTrash}
             id='del-btn'
             className='post-icons'
-            // onClick={deletePost(data["pk"])}
+            onClick={deletePost}  
           />
         </div>
         <h4 className='date'>

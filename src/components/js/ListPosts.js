@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Pagination from "./Pagination";
 import SinglePost from "./SinglePost";
 
 export default function ListPosts() {
@@ -26,6 +27,7 @@ export default function ListPosts() {
         postList.map((data, index) => {
           return <SinglePost key={index} data={data} />;
         })}
+       <Pagination />
     </div>
   );
 }

@@ -49,3 +49,7 @@
     cursor: pointer;
     color: #240046;
 }
+
+a{
+    text-decoration: none;
+}

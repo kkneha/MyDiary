@@ -3,10 +3,9 @@ import "../css/SinglePost.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { render } from "@testing-library/react";
-import ViewPost from "./ViewPost";
 
 export default function SinglePost({ data }) {
+  const baseURL = "https://p-diary.herokuapp.com/post/";
   const months = [
     "January",
     "February",
@@ -22,21 +21,54 @@ export default function SinglePost({ data }) {
     "December",
   ];
 
-  var currentMonth = months[parseInt(data["fields"]["createdOn"].toString().slice(5, 7)) - 1];
+  var currentMonth =
+    months[parseInt(data["fields"]["createdOn"].toString().slice(5, 7)) - 1];
   var currentDate = data["fields"]["createdOn"].toString().slice(8, 10);
   var currentYear = data["fields"]["createdOn"].toString().slice(0, 4);
 
+  // function deletePost(pk) {
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     // body: JSON.stringify(post)
+  //   };
+  //   fetch(baseURL + "delete/" + pk + "/", requestOptions).then(
+  //     async (response) => {
+  //       // const data = await response.json()
+  //       // setDone(data)
+  //     }
+  //   );
+  // }
+
   return (
-    <Link to={{
-        pathname:"/view",
-        state:{
-            data:data
-        }
+    <Link
+      to={{
+        pathname: "/view",
+        state: {
+          data: data,
+        },
       }}>
       <div className='post'>
         <div className='top-icons'>
-          <FontAwesomeIcon icon={faEdit} id='edit-btn' className='post-icons' />
-          <FontAwesomeIcon icon={faTrash} id='del-btn' className='post-icons' />
+          <Link
+            to={{
+              pathname: "/edit",
+              state: {
+                data: data,
+              },
+            }}>
+            <FontAwesomeIcon
+              icon={faEdit}
+              id='edit-btn'
+              className='post-icons'
+            />
+          </Link>
+          <FontAwesomeIcon
+            icon={faTrash}
+            id='del-btn'
+            className='post-icons'
+            // onClick={deletePost(data["pk"])}
+          />
         </div>
         <h4 className='date'>
           {currentDate} {currentMonth} {currentYear}

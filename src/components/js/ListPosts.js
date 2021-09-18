@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SinglePost from "./SinglePost";
-import ViewPost from "./ViewPost";
 
 export default function ListPosts() {
   const [postList, setPostList] = useState([]);

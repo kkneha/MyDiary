@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto auto;
+}
+
+.labels{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    padding-left: 15px;
+    font-weight: bold;
+}
+
+.edit-title{
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.edit-form input{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    margin: 8px 20px;
+    background-color: #E5E5E5;
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 15px;
+}
+
+.edit-form textarea{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    margin: 8px 20px;
+    height: 350px;
+    background-color: #E5E5E5;
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 15px;
+}
+
+.edit-btn{
+    margin-top: 10px;
+    background-color: #240046;
+    border-radius: 8px;
+    border: none;
+    width: 20%;
+    align-self: center; 
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+}

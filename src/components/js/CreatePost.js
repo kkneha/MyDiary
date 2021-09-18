@@ -24,7 +24,7 @@ export default function CreatePost() {
             const data = await response.json()
             setDone(data)
         })
-    }
+    } 
 
     return (
         <div>

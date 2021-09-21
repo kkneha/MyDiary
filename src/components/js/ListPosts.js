@@ -9,7 +9,7 @@ export default function ListPosts() {
 
   useEffect(() => {
     // useEffect -> loading the data once per refresh
-    fetch(baseURL + "get-posts/") // fecth data from server at the given endpoint
+    fetch(baseURL + "get-posts/" + "1") // fecth data from server at the given endpoint
       .then((response) => {
         if (response.ok) {
           return response.json(); // code 200 then convert to json format
@@ -24,10 +24,10 @@ export default function ListPosts() {
   return (
     <div>
       {postList &&
-        postList.map((data, index) => {
+        postList.reverse().map((data, index) => {
           return <SinglePost key={index} data={data} />;
         })}
-       <Pagination />
+       <Pagination totalPages={2}/>
     </div>
   );
 }

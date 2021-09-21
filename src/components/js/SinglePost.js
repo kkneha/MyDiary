@@ -2,7 +2,7 @@ import React from "react";
 import "../css/SinglePost.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SinglePost({ data }) {
   const baseURL = "https://p-diary.herokuapp.com/post/";
@@ -25,7 +25,7 @@ export default function SinglePost({ data }) {
     months[parseInt(data["fields"]["createdOn"].toString().slice(5, 7)) - 1];
   var currentDate = data["fields"]["createdOn"].toString().slice(8, 10);
   var currentYear = data["fields"]["createdOn"].toString().slice(0, 4);
-  let history = useHistory();
+  // let history = useHistory();
   function deletePost() {
     const requestOptions = {
       method: "POST",
@@ -34,7 +34,8 @@ export default function SinglePost({ data }) {
     fetch(baseURL + "delete/" + data["pk"] + "/", requestOptions).then(
       async (response) => {
         console.log(response.json())
-        history.push("/")
+        // history.push("/")
+        window.location.reload();
       }
     );
   }
@@ -62,12 +63,14 @@ export default function SinglePost({ data }) {
               className='post-icons'
             />
           </Link>
-          <FontAwesomeIcon
-            icon={faTrash}
-            id='del-btn'
-            className='post-icons'
-            onClick={deletePost}  
-          />
+          <Link to="/">
+            <FontAwesomeIcon
+              icon={faTrash}
+              id='del-btn'
+              className='post-icons'
+              onClick={deletePost}  
+            />
+          </Link>
         </div>
         <h4 className='date'>
           {currentDate} {currentMonth} {currentYear}

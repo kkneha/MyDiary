@@ -10,8 +10,8 @@ import EditPost from "./components/js/EditPost";
 function App() {
   return (
     <div className='App'>
-      <NavBar />
       <Router>
+      <NavBar />
         <Switch>
           <Route path='/create'>
             <CreatePost />

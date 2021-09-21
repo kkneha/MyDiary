@@ -7,6 +7,10 @@
     height: 50px;
 }
 
+.page-no {
+    display: flex;
+}
+
 .nos, .next, .prev{
     padding: 5px;
     margin: 5px;

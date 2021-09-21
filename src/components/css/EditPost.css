@@ -3,8 +3,9 @@
 .edit-form{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     margin: auto auto;
+    padding-top: 2%;
 }
 
 .labels{

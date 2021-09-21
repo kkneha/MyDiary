@@ -20,7 +20,7 @@ export default function ListPosts() {
         setPostList(data); // stores the data recieved from server to list
       });
   }, []);
-
+  
   return (
     <div>
       {postList &&

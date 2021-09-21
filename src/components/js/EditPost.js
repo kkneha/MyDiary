@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/EditPost.css";
 import { useLocation } from "react-router";
+import Popup from "./Popup";
 
 export default function EditPost() {
   const data = useLocation().state.data;
@@ -20,7 +21,9 @@ export default function EditPost() {
         body: JSON.stringify(post)
     }
     fetch(baseURL + 'edit/' + pk + "/",requestOptions).then(async response => {
-        console.log(response.json())
+        // console.log(response.json())
+        const data = await response.json()
+        setDone(data)
     })
   } 
   return (
@@ -50,8 +53,8 @@ export default function EditPost() {
         ></textarea>
         <button className='edit-btn'>Update</button>
       </form>
-      {done && (
-        alert("Updated"))}
+      {done && <Popup       
+            />}
     </div>
   );
 }

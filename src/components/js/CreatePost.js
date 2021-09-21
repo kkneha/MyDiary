@@ -2,11 +2,13 @@ import React,{useState} from 'react'
 import "../css/CreatePost.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenAlt } from '@fortawesome/free-solid-svg-icons'
+import Popup from './Popup'
 
 export default function CreatePost() {
     const [title,setTitle] = useState('')
     const [body,setBody] = useState('')
     const [done,setDone] = useState(false)
+
     // const baseURL = 'http://127.0.0.1:8000/post/'
     const baseURL = 'https://p-diary.herokuapp.com/post/'
 
@@ -48,9 +50,8 @@ export default function CreatePost() {
                 ></textarea>
                 <button className="post-btn">Post</button>
             </form>
-            {done && (
-                <h1>created</h1>
-            )}
+            {done && <Popup       
+            />}
         </div>
     )
 }

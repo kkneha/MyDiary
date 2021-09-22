@@ -2,14 +2,14 @@
     display: flex;
     background-color: white;
     border-radius: 10px;
-    opacity: 2;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 200px;
-    min-height: 100px;
+    min-width: 400px;
+    min-height: 200px;
     justify-content: center;
+    align-items: center;
     border: 0.2px solid black;
 }
 
@@ -23,7 +23,7 @@
 .popup-btn{
     background-color: aqua;
     color: white;
-    padding: 5px;
+    padding: 10px 40px;
     background-color: #240046;
     border-radius: 8px;
     border: none;
@@ -32,6 +32,11 @@
     cursor: pointer;
     color: white;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 800;
+}
+
+.darken {
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 30%;
 }

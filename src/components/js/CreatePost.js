@@ -30,7 +30,7 @@ export default function CreatePost() {
 
     return (
         <div>
-            <form className="create-form" onSubmit={handleSubmit}>
+            <form className="create-form wrapper" onSubmit={handleSubmit}>
                 <h2 className="form-title"><FontAwesomeIcon className="pen-icon" icon={faPenAlt} className="icon"/> My Day</h2>
                 <input 
                   placeholder="Type Something that describes your day!"
@@ -48,9 +48,9 @@ export default function CreatePost() {
                       setBody(e.target.value)
                   }}
                 ></textarea>
-                <button className="post-btn">Post</button>
+                <button className="post-btn" onClick={Popup.blurbackground}>Post</button>
             </form>
-            {done && <Popup       
+            {done && <Popup      
             />}
         </div>
     )

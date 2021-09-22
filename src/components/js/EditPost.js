@@ -28,7 +28,7 @@ export default function EditPost() {
   } 
   return (
     <div>
-      <form className='edit-form' onSubmit={handleSubmit}>
+      <form className='edit-form wrapper' onSubmit={handleSubmit}>
         <h2 className='edit-title'>Edit Form</h2>
         <label for='title' className='labels'>
           Title

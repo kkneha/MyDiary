@@ -25,3 +25,10 @@
 .nos:hover, .next:hover, .prev:hover{
     transform: scale(1.1);
 }
+
+.darken {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    opacity: 30%;
+}

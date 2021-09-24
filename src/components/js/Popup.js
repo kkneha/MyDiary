@@ -13,9 +13,6 @@ export default function Popup() {
         wrapper[i].classList.remove("darken");
         }   
     }
-    // document.querySelector(".popup-box").style.opacity = 2;
-    // const blur = document.querySelector("#root")
-    // blur.classList.add("darken");
 
     return (
         <div className="popup-wrapper">

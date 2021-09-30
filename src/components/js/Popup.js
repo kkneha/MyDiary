@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 
 export default function Popup() {
     const wrapper = document.getElementsByClassName("wrapper"); 
-    for(var i = 0; i< wrapper.length; i++){
+   
+    for( var i = 0; i< wrapper.length; i++){
         wrapper[i].classList.add("darken");
     }   
+   
 
     function removeBlur(){
         for(i = 0; i< wrapper.length; i++){

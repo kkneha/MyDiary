@@ -7,6 +7,7 @@
     background-color: #240046;
     align-items: center;
     font-family: 'Raleway', sans-serif;
+    width: 100vw;
 }
 
 .left{
@@ -17,7 +18,7 @@
 }
 
 .right{
-    margin-left: 75%;
+    margin-left: 78%;
 }
 
 .book-icon{
@@ -30,6 +31,7 @@
 .header{
     color: white;
     margin-left: 15px;
+    width: max-content;
 }
 
 /* Create Button */
@@ -39,14 +41,24 @@
     color: white;
     border: 2px solid white;
     border-radius: 12px;
-    padding: 9px;
+    padding: 10px;
     font-size: 14px;
     font-weight: bold;
     margin-right: 50px;
+    width: 130px;
 }
 
 .create-btn:hover{
     background-color: white ;
     color: #240046;
+}
+
+@media screen and (max-width:375px){
+    .right{
+        margin-left: 10%;
+    }
+    .header{
+        display: none;
+    }
 }
 

@@ -16,7 +16,7 @@ function App() {
           <Route path='/create'>
             <CreatePost />
           </Route>
-          <Route path='/edit/:int'>
+          <Route path='/edit'>
             <EditPost />
           </Route>
           <Route path='/:view'>

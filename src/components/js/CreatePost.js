@@ -5,10 +5,17 @@ import { faPenAlt } from '@fortawesome/free-solid-svg-icons'
 import Popup from './Popup'
 
 export default function CreatePost() {
+    var today = new Date()
+    var d = today.getFullYear()+'-'+((today.getMonth()+1)<10 ? ('0'+ (today.getMonth()+1)):(today.getMonth()+1))+'-'+today.getDate();
+    
     const [title,setTitle] = useState('')
     const [body,setBody] = useState('')
     const [done,setDone] = useState(false)
+    var [newDate, setDate] = useState(d)
 
+    // var today = new Date()
+    //var newDate = today.getFullYear()+'/'+((today.getMonth()+1)<10 ? ('0'+ (today.getMonth()+1)):(today.getMonth()+1))+'/'+today.getDate();
+    console.log(newDate)
     // const baseURL = 'http://127.0.0.1:8000/post/'
     const baseURL = 'https://p-diary.herokuapp.com/post/'
 
@@ -16,7 +23,8 @@ export default function CreatePost() {
         e.preventDefault()
         setTitle('')
         setBody('')
-        var post = {'title':title,'body':body}
+        setDate(d)
+        var post = {'title':title,'createdOn':newDate,'body':body}
         const requestOptions = {
             method: "POST",
             headers: {"Content-Type":"application/json"},
@@ -25,12 +33,14 @@ export default function CreatePost() {
         fetch(baseURL + 'create/',requestOptions).then(async response => {
             const data = await response.json()
             setDone(data)
+            console.log(data)
+            console.log("created")
         })
     } 
 
     return (
         <div>
-            <form className="create-form" onSubmit={handleSubmit}>
+            <form className="create-form wrapper" onSubmit={handleSubmit}>
                 <h2 className="form-title"><FontAwesomeIcon className="pen-icon" icon={faPenAlt} className="icon"/> My Day</h2>
                 <input 
                   placeholder="Type Something that describes your day!"
@@ -40,6 +50,13 @@ export default function CreatePost() {
                     setTitle(e.target.value)
                 }}
                 ></input>
+                <input 
+                 type="date"
+                 placeholder="YYYY/MM/DD" 
+                 value={newDate}
+                 onChange={e => {
+                     setDate(e.target.value)
+                 }}></input>
                 <textarea
                   placeholder="Get Started with your day!" 
                   type="text"
@@ -48,9 +65,9 @@ export default function CreatePost() {
                       setBody(e.target.value)
                   }}
                 ></textarea>
-                <button className="post-btn">Post</button>
+                <button className="post-btn" onClick={Popup.blurbackground}>Post</button>
             </form>
-            {done && <Popup       
+            {done && <Popup      
             />}
         </div>
     )

@@ -52,7 +52,7 @@ export default function SinglePost({ data }) {
         <div className='top-icons'>
           <Link
             to={{
-              pathname: "/edit/" + data["pk"],
+              pathname: "/edit/",
               state: {
                 data: data,
               },
